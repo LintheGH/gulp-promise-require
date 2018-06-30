@@ -14,20 +14,20 @@ const jsDist = './dist/js';
 const scssDist = './dist/scss'
 
 //定义名为js的任务
-gulp.task('js', function () {
-    gulp.src(jsSrc)
-        .pipe(concat('main.js'))
-        .pipe(gulp.dest(jsDist))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(minjs())
-        .pipe(gulp.dest(jsDist))
-        .pipe(connect.reload())
-});
+// gulp.task('js', function () {
+//     gulp.src(jsSrc)
+//         .pipe(concat('main.js'))
+//         .pipe(gulp.dest(jsDist))
+//         .pipe(rename({suffix: '.min'}))
+//         .pipe(minjs())
+//         .pipe(gulp.dest(jsDist))
+//         .pipe(connect.reload())
+// });
 
 //定义 requirejs 任务
 gulp.task('rjs', function () {
     gulp.src(jsSrc)
-        .pipe(amdOptimize("main", {
+        .pipe(amdOptimize("main", {//main为主入口文件名
             paths: {
                 "a": "./src/js/a",
                 "b": "./src/js/b"
